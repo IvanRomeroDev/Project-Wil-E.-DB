@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en" >
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="keywords" content="Wail E, MySQL, GaussDB, Databases, Migration, Assistant">
+        <meta name="description" content="Online assistant for MySQL Database migration to GuassDB">
+        <meta name="author" content="RomeroDev">
+        <meta http-equiv="refresh" content="30">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/style.css">
+
+        <h1>Project Wil E. DB.</h1>
+        <h3>MySql Database Migration Assistant.</h3>
+
+        <br>
+        <br>
+        <br>
+
+    </head>
+
+    <body>
+        <form action="/" method="post">
+            <fieldset>
+              <legend>ENTER YOUR REQUIREMENTS FOR A DATABASE</legend>
+              <br>
+                <li>
+                  <label for="region">Country:</label>
+                  <select id="region" name="user_region" required>
+                    <option value="" selected>Select</option>
+                    <option value="Mexico">México</option>
+                    <option value="UnitedStates">United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="France">France</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Germany">Germany</option>
+                    <option value="China">China</option>
+                    <option value="SouthKorea">South Korea</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Japan">Japan</option>
+                    <option value="England">England</option>
+                  </select>
+                </li>
+                <br>
+                <li>
+                  <label for="budget">Budget:</label>
+                  <input type="number" id="budget" name="user_budget" required placeholder="$$$" min="0""/>
+                </li>
+                <br>
+                <!--<li>
+                  <label for="cpuRAM">CPUs/RAM:</label>
+                  <select id="cpuRAM" name="user_cpu-ram" required>
+                    <option value="" selected>Select Required CPUs/RAM</option>
+                    <option value="4vCPUs_16GB">4vCPUs 16GB</option>
+                    <option value="8vCPUs_32GB">8vCPUs 32GB</option>
+                    <option value="16vCPUs_64GB">16vCPUs 64GB</option>
+                    <option value="32vCPUs_128GB">32vCPUs 128GB</option>
+                    <option value="60vCPUs_256GB">60vCPUs 256GB</option>
+                    <option value="8vCPUs_64GB">8vCPUs 64GB</option>
+                    <option value="16vCPUs_128GB">16vCPUs 128GB</option>
+                    <option value="32vCPUs_256GB">32vCPUs 256GB</option>
+                    <option value="64vCPUs 512GB">64vCPUs 512GB</option>
+                  </select>
+                </li>-->
+                <li>
+                  <label for="diskSpace">Disk Space:</label>
+                  <input type="number" id="diskSpace" name="user_diskSpace" required placeholder="MB" min="0""/>
+                </li>
+                <br>
+                <li>
+                  <label for="monthlyPetitions">Monthly Petitions:</label>
+                  <input type="number" id="monthlyPetitions" name="user_monthlyPetitions" required placeholder="000" min="0""/>
+                </li>
+                <br>
+                <li>
+                  <label for="approach">Server Approach:</label>
+                  <select id="approach" name="user_approach" required>
+                    <option value="" selected>Select</option>
+                    <option value="Speed">Speed</option>
+                    <option value="Price">Price</option>
+                  </select>
+                </li>
+                <br>
+                <div class="button">
+                  <button type="reset">Reset</button>
+                  <button type="submit">Send Data</button>
+                </div>
+            </fieldset>
+        </form>
+        
+        <script src="index.js"></script>
+    </body>
+
+</html>
