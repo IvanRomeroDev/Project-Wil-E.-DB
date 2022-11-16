@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "server",
   "version": "1.0.0",
   "description": "Collect users query",
   "main": "index.js",

@@ -1,5 +1,4 @@
-1
-Mexico
-1
-Speed
-1
+user_budget 1
+user_diskSpace 1
+user_approach Speed
+user_monthlyPetitions 1

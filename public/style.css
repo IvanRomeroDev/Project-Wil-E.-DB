@@ -1,6 +1,9 @@
 html
 {
   background-color: #232527;
+  background-image: url("https://media.istockphoto.com/id/1327566267/video/abstract-magenta-blue-orange-soft-gradient-cycle-slow-motion-background-loop.jpg?s=640x640&k=20&c=JkeZVgKCTx0u0RbGCTGQLscVMJq_eu6mr5bln00cE3E=");
+  background-repeat: no-repeat;
+  background-size:1980px, 1080px;
 }
 
 h1
@@ -19,70 +22,176 @@ h3
   text-align: center;
 }
 
+#page-container
+{
+  position: relative;
+  min-height: 70vh;
+}
+
+#content-wrap
+{
+ padding-bottom: 2.5rem;
+}
+
 form 
 {
   font-family: 'Courier New', Courier, monospace;
-    background-color:aliceblue;
-    margin: 0 auto;
-    width: 450px;
-    padding: 1em;
-    border: 1px solid #ccc;
-    border-radius: 1em;
-  }
-  
-  ul 
-  {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  form li + li 
-  {
-    margin-top: 1em;
-  }
+  background-color:aliceblue;
+  margin: 0 auto;
+  width: 550px;
+  height: 350px;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
 
-  legend
-  {
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  
-  label 
-  {
-    font-family:'Courier New', Courier, monospace;
-    display:inline-block;
-    width: 140px;
-    text-align: top;
-  }
-  
-  input,
-  textarea 
-  {
-    font: 1em sans-serif;
-    width: 157px;
-    box-sizing: border-box;
-    border: 1px solid #999;
-  }
-  
-  input:focus,
-  textarea:focus 
-  {
-    border-color: #000;
-  }
-  
-  textarea 
-  {
-    vertical-align: top;
-    height: 5em;
-  }
-  
-  .button
-  {
-    text-align: center;
-  }
+fieldset
+{
+  width: 530px;
+  height: 350px;
+  position: relative;
+  left: -8px;
+  bottom: 12px;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+}
 
-  button
-  {
-    margin-left: 0.5em;
-  }
+ul 
+{
+  list-style:none;
+  padding: 0;
+  margin: 0;
+}
+
+li
+{
+  padding-left: 45px;
+}
+
+form li + li 
+{
+  margin-top: 2em;
+}
+
+legend
+{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+label 
+{
+  font-size: large;
+  font-family:'Courier New', Courier, monospace;
+  display:inline-block;
+  width: 250px;
+  text-align: top;
+  position: relative;
+}
+
+input,
+textarea 
+{
+  font-size: large;
+  font: 1em sans-serif;
+  width: 150px;
+  box-sizing: border-box;
+  border: 1px solid #999;
+}
+
+input:focus,
+textarea:focus 
+{
+  border-color: #000;
+  background-color:cornsilk;
+}
+
+textarea 
+{
+  vertical-align: top;
+  height: 5em;
+}
+
+#approach
+{
+  width: 70px;
+}
+
+.button
+{
+  padding-top: 20px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+button
+{
+  margin-left: 0.5em;
+}
+
+#footer
+{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+#logo-axolots
+{
+  width: 90px;
+  height: 90px;
+  position: relative;
+  left: 145px;
+  top: 50px;
+}
+
+#made-by
+{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  position: relative;
+  top: 5px;
+  left: -57px;
+  color: azure;
+}
+
+#text-axolots
+{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  position: relative;
+  top: 25px;
+  left: -165px;
+  color: azure;
+}
+
+#logo-huawei
+{
+  width: 85px;
+  height: 85px;
+  position: relative;
+  top: 42px;
+  left: 1080px;
+}
+
+#powered-by
+{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  position: relative;
+  top: 12px;
+  left: 860px;
+  color: azure;
+}
+
+#rights-reserved
+{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: smaller;
+  text-align: center;
+  position: relative;
+  top: 13px;
+  color: azure;
+}

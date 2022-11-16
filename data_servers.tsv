@@ -1,0 +1,19 @@
+	AP-Singapore	AP-Bangkok	AP-Jakarta	CN-North Beijing 4	CN-Hong Kong	LA-Mexico City 2	LA-Santiago 	LA-Sao Paulo 1
+Max shards	0	9	9	0	9	9	9	9
+Min shards	0	1	1	0	1	1	1	1
+Max nodes	0	9	9	10	9	9	9	9
+Min nodes	0	1	1	2	1	1	1	1
+Distributed instance	1	1	1	1	1	1	1	1
+Distributed primarily/standby	1	1	1	1	1	1	1	1
+4vCPUs 16GB	0	0	0	1	0	0	0	0
+8vCPUs 32GB	0	0	0	1	0	0	0	0
+16vCPUs 64GB	0	0	0	1	0	0	0	0
+32vCPUs 128GB	0	0	0	1	0	0	0	0
+60vCPUs 256GB	0	0	0	1	0	0	0	0
+8vCPUs 64GB	1	1	1	0	1	1	1	1
+16vCPUs 128GB	1	1	1	0	1	1	1	1
+32vCPUs 256GB	0	1	1	0	1	1	1	1
+64vCPUs 512GB	0	0	1	0	1	1	0	1
+Min space	160	160	1440	40	1440	1440	160	1440
+Max space	16000	16000	144000	128000	144000	144000	16000	144000
+Disk Encryption	1	1	1	0	1	1	1	1
