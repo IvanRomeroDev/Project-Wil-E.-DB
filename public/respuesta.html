@@ -1,222 +1,120 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+    
+    <head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sugerencias</title>
-    <style>
-        * {
-            font-family: "Verdana", sans-serif;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            letter-spacing: 0px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            scroll-behavior: smooth;
-            margin: 0;
-            color: #fff;
-        }
+        <meta charset="UTF-8">
+        <meta name="author" content="RomeroDev">
+        <meta http-equiv="refresh" content="30">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/style2.css">
 
-        body {
-            margin: 2rem;
-            background-color: #283c3b;
-        }
+        <h1 id="title">Project Wile E. DB.</h1>
+        <h3>Database Migration Assistant.</h3>
+        <br>
+        <br>
+        <br>
 
-        .conteudo {
-            width: 1200px;
-            margin-top: auto;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    </head>
 
-        .carrousel {
-            display: grid;
-            grid-auto-flow: column;
-            scroll-behavior: auto;
-            gap: 1.2rem;
-            overflow-y: auto;
-            overscroll-behavior-x: contain;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    <body>
 
-        .carrousel::-webkit-scrollbar {
-            display: none;
-        }
+        <div id="page-container">
 
-        .card {
-            scroll-snap-align: start;
-            border-radius: 30px;
-            min-height: 200px;
-            min-width: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+            <div id="content-wrap">
 
+                <div id="content">
 
-        .card:nth-child(1) {
-            background: linear-gradient(-229deg, #FBD52D, #EF3A7B);
-        }
+                    <div class="carrusel">
 
-        .card:nth-child(2) {
-            background: linear-gradient(-229deg, #FF70AF, #5FA8F5);
-        }
+                        <div class="card_swivel">
 
-        .card:nth-child(3) {
-            background: linear-gradient(-229deg, #0cebeb, #29ffc6);
-        }
+                            <div class="card_swivel-content">
 
-        .card:nth-child(4) {
-            background: linear-gradient(-229deg, #88F7F9, #048FFF);
-        }
+                                <div class="card_swivel-content--front">
 
-        .card:nth-child(5) {
-            background: linear-gradient(-229deg, #0093E9, #80D0C7);
-        }
+                                    Same Region
 
-        .card:nth-child(6) {
-            background: linear-gradient(-229deg, #cf91ff, #5782F5);
-        }
+                                </div>
 
-        .card:nth-child(7) {
-            background: linear-gradient(-229deg, #642B73, #C6426E);
-        }
-               .card__giratorio {
-            background-color: transparent;
-            width: 300px;
-            height: 200px;
-            perspective: 1000px;
-        }
+                                <div class="card_swivel-content--back">
 
-        .card__giratorio-conteudo {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
+                                    <h1 id = "region_sr"><b>Region </b> </h1>
+                                    <p id = "space_sr"><b>Space: </b> </p>
+                                    <p id = "vcpu_sr"><b>vCPU: </b> </p>
+                                    <p id = "shards_sr"><b>Shards: </b> </p>
+                                    <p id = "nodes_sr"><b>Nodes: </b> </p>
+                                    <p id = "billing_sr"><b>Billing mode: </b> </p>
+                                    <p id = "period_sr"><b>Period: </b> </p>
+                                    <p><b>Az:</b>General AZ</p>
+                                    <p><b>Instance Type</b>: Distributed</p>
+                                    <p><b>Deployment Model</b>: Independent </p>
+                                    <p><b>Instance class:</b> General-enhanced II</p>
+                                    <p><b> Engine:</b>  2.3 Enterprise</p>
+                                    <p id = "cost_sr"><b>Cost: </b> </p>
 
-        .card__giratorio:hover .card__giratorio-conteudo {
-            transform: rotateY(180deg);
-        }
+                                </div>
 
-        .card__giratorio-conteudo--frente,
-        .card__giratorio-conteudo--traseira {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            /* Safari */
-            backface-visibility: hidden;
-            border-radius: 15px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
+                            </div>
 
-        .card__giratorio-conteudo--frente {
-            background: linear-gradient(-229deg, #0093E9, #80D0C7);
-        }
+                        </div>
 
-        .card__giratorio-conteudo--traseira {
-            background: linear-gradient(229deg, #0093E9, #80D0C7);
-            color: white;
-            transform: rotateY(180deg);
-        }
+                        <div class="card_swivel">
 
-        .card__giratorio-conteudo--traseira h1,
-        .card__giratorio-conteudo--traseira p {
-            margin: 0;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
+                            <div class="card_swivel-content">
 
-        .card__giratorio-conteudo--traseira h1 {
-            font-size: 1.7rem;
-        }
+                                <div class="card_swivel-content--front">
 
-        .logo {
-            width: 50px;
-            height: 50px;
-            filter: drop-shadow(2px 2px 5px black);
-            opacity: .7;
-        }
+                                    Best Cost
 
-        img {
-            position: relative;; 
-            display: block;
-            width: 50%; 
-            margin-top: 80px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        div.avatar {
-            height: 500px;
-            width: 500px;
-            background-repeat: no-repeat;
-            background-position: 50%; 
-            border-radius: 50%; 
-            background-size: 100% auto;
-                        margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
-</head>
+                                </div>
 
-<body>
-    <div class="conteudo">
-        <div class="carrousel">
-            <div class="card__giratorio">
-    <div class="card__giratorio-conteudo">
-        <div class="card__giratorio-conteudo--frente">
-            Costo 
+                                <div class="card_swivel-content--back">
+
+                                    <h1 id = "region_bc"><b>Region </b> </h1>
+                                    <p id = "space_bc"><b>Space: </b> </p>
+                                    <p id = "vcpu_bc"><b>vCPU: </b> </p>
+                                    <p id = "shards_bc"><b>Shards: </b> </p>
+                                    <p id = "nodes_bc"><b>Nodes: </b> </p>
+                                    <p id = "billing_bc"><b>Billing mode: </b> </p>
+                                    <p id = "period_bc"><b>Period: </b> </p>
+                                    <p><b>Az:</b>General AZ</p>
+                                    <p><b>Instance Type</b>: Distributed</p>
+                                    <p><b>Deployment Model</b>: Independent </p>
+                                    <p><b>Instance class:</b> General-enhanced II</p>
+                                    <p><b> Engine:</b>  2.3 Enterprise</p>
+                                    <p id = "cost_bc"><b>Cost: </b> </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <footer id="footer">
+                <a href="https://github.com/Team-Axolotls" target="_blank">
+                    <img src="./LogoAxolotl_v2.png" id="logo-axolots">
+                </a>
+                <b id="made-by">Made by</b>
+                <b id="text-axolots">Team Axolotls</b>
+                <a href="https://www.huaweicloud.com/intl/en-us/" target="_blank">
+                    <img src="./LogoHuawei.png" id="logo-huawei">
+                </a>
+                <b id="powered-by">Powered by</b>
+                <p id="rights-reserved">All rights granted under the GNU General Public License v3.0</p>
+
+            </footer>
+
         </div>
-        <div class="card__giratorio-conteudo--traseira">
-            <h1>Sugerencia 1</h1>
-            <p>Web e Mobile</p>
-            <p>Segue na base!</p>
-        </div>
-    </div>
-</div>
 
-<div class="card__giratorio">
-    <div class="card__giratorio-conteudo">
-        <div class="card__giratorio-conteudo--frente">
-            Requerimientos  
-        </div>
-        <div class="card__giratorio-conteudo--traseira">
-            <h1>Sugerencia 2</h1>
-            <p>Web e Mobile</p>
-            <p>Segue na base!</p>
-        </div>
-    </div>
-</div>
-<div class="card__giratorio">
-    <div class="card__giratorio-conteudo">
-        <div class="card__giratorio-conteudo--frente">
-            Sugerida
-        </div>
-        <div class="card__giratorio-conteudo--traseira">
-            <h1>Sugerencia 3</h1>
-            <p>Web e Mobile</p>
-            <p>Segue na base!</p>
-        </div>
-    </div>
-</div>
-        </div>
-    </div>
+        <script src="respuesta.js"> </script>
 
-
-<div class="avatar" style="background-image: url(https://miro.medium.com/max/884/1*3o3pvDP9DZ8ouYdD4MPwCg.png);" >
-
-</div>
-</body>
+    </body>
 
 </html>

@@ -5,7 +5,7 @@ const fs = require('fs');
 const subProcess = require('child_process');
 
 /// compila el programa cuando se inicia el servidor
-/*subProcess.execSync("g++ processor.cpp -o processor", (err, stdout, stderr) => {
+subProcess.execSync("g++ processor.cpp -o processor", (err, stdout, stderr) => {
     if (err) {
       console.error(err)
       process.exit(1)
@@ -13,7 +13,7 @@ const subProcess = require('child_process');
       console.log(`The stdout Buffer from shell: ${stdout.toString()}`)
       console.log(`The stderr Buffer from shell: ${stderr.toString()}`)
     }
-});*/
+});
 
 const PORT = process.env.PORT || 3000;
 
@@ -25,23 +25,16 @@ app.use(bodyParser.json());
 
 app.post('/respuesta', (req, res) => {
     const user_data = req.body;
-
-    /**
-     * User region
-     * budget
-     * disk space
-     * monthly petitions
-     * server approach
-     */
     
     /// creo el archivo con los datos
-    fs.writeFile("data.txt", "", (err) => {
+    fs.writeFileSync("data.txt", "", (err) => {
         if(err) throw err;
     });
 
     for(const prop in user_data){
-        fs.appendFile("data.txt", prop + ' ' + user_data[prop] + "\n", (err) => {
-            if(err) throw err;
+            if(prop == "time") continue;
+            fs.appendFileSync("data.txt", prop + ' ' + user_data[prop] + "\n", (err) => {
+                if(err) throw err;
         });
     }
     
@@ -51,17 +44,15 @@ app.post('/respuesta', (req, res) => {
           console.error(err)
           process.exit(1)
         } else {
+          
           console.log(`The stdout Buffer from shell: ${stdout.toString()}`)
           console.log(`The stderr Buffer from shell: ${stderr.toString()}`)
         }
+        
     });
     
-    /// leo la respuesta
     const response = require("./response.json");
-    for(const prop in response){
-        console.log(prop + ": " + response[prop]);
-    }
-
+    console.log(response);
     /// envio la respuesta al cliente
     res.sendFile(path.join(__dirname, 'public/respuesta.html'));
 });

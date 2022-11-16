@@ -33,43 +33,43 @@
                   <select id="region" name="user_region" required>
                     <option value="" selected>Select</option>
                     <optgroup label="America">
-                      <option value="LA-Mexico City2">North America</option>
-                      <option value="LA-Sao Paulo1">Central America</option>
+                      <option value="LA-Mexico-City2">NorthAmerica</option>
+                      <option value="LA-Sao-Paulo1">Central America</option>
                       <option value="LA-Santiago">South America</option>
                     </optgroup>
                     <optgroup label="Europe">
-                      <option value="CN Southwest-Guiyang1">Central Europe</option>
-                      <option value="CN Southwest-Guiyang1">Eastern Europe</option>
-                      <option value="CN Southwest-Guiyang1">North Europe</option>
-                      <option value="CN Southwest-Guiyang1">Southwest Europe</option>
-                      <option value="LA-Mexico City2">Western Europe</option>
+                      <option value="CN-Southwest-Guiyang1">Central Europe</option>
+                      <option value="CN-Southwest-Guiyang1">Eastern Europe</option>
+                      <option value="CN-Southwest-Guiyang1">North Europe</option>
+                      <option value="CN-Southwest-Guiyang1">Southwest Europe</option>
+                      <option value="LA-Mexico-City2">Western Europe</option>
                     </optgroup>
                     <optgroup label="Asia">
-                      <option value="CN Southwest-Guiyang1">Central Asia</option>
-                      <option value="CN Southwest-Guiyang1">Eastern Asia</option>
-                      <option value="CN Southwest-Guiyang1">North Asia</option>
+                      <option value="CN-Southwest-Guiyang1">Central Asia</option>
+                      <option value="CN-Southwest-Guiyang1">Eastern Asia</option>
+                      <option value="CN-Southwest-Guiyang1">North Asia</option>
                       <option value="CN-Hong Kong">Southern Asia</option>
-                      <option value="Asi Pacifico - Bangkok">Western Asia</option>
+                      <option value="Asi-Pacifico-Bangkok">Western Asia</option>
                     </optgroup>
                     <optgroup label="Oceania">
-                      <option value="Asia Pacifico - Singapur">Australasia</option>
-                      <option value="Asia Pacifico - Singapur">Melanesia</option>
-                      <option value="CN-Hong Kong">Micronesia</option>
-                      <option value="CN-Hong Kong">Polynesia</option>
+                      <option value="Asia-Pacifico-Singapur">Australasi</option>
+                      <option value="Asia-Pacifico-Singapur">Melanesia</option>
+                      <option value="CN-Hong-Kong">Micronesia</option>
+                      <option value="CN-Hong-Kong">Polynesia</option>
                     </optgroup>
                     <optgroup label="Africa">
-                      <option value="Asi Pacifico - Bangkok">Central Africa</option>
-                      <option value="Asi Pacifico - Bangkok">Eastern Africa</option>
-                      <option value="CN Southwest-Guiyang1">North Africa</option>
+                      <option value="Asi-Pacifico-Bangkok">Central Africa</option>
+                      <option value="Asi-Pacifico-Bangkok">Eastern Africa</option>
+                      <option value="CN-Southwest-Guiyang1">North Africa</option>
                       <option value="AP-Jakarta">Southern Africa</option>
-                      <option value="Asi Pacifico - Bangkok">Western Africa</option>
+                      <option value="Asi-Pacifico-Bangkok">Western Africa</option>
                     </optgroup>
                   </select>
                 </li>
                 <br>
                 <li>
                   <label for="monthlyPetitions">Monthly Petitions:</label>
-                  <input type="number" id="monthlyPetitions" name="user_monthlyPetitions" required placeholder="0" min="0""/>
+                  <input type="number" id="monthlyPetitions" name="user_monthlyPetitions" required placeholder="0" min="0" max="99999999999999" "/>
                 </li>
                 <br>
                 <!--<li>
@@ -89,12 +89,12 @@
                 </li>-->
                 <li>
                   <label for="diskSpace">Disk Space:</label>
-                  <input type="number" id="diskSpace" name="user_diskSpace" required placeholder="GB" min="0""/>
+                  <input type="number" id="diskSpace" name="user_diskSpace" required placeholder="GB" min="0" max="99999999999999" "/>
                 </li>
                 <br>
                 <li>
                   <label for="budget">Budget:</label>
-                  <input type="number" id="budget" name="user_budget" required placeholder="0" min="0""/>
+                  <input type="number" id="budget" name="user_budget" required placeholder="0" min="0" max="99999999999999" "/>
                 </li>
                 <br>
                 <li>
@@ -105,23 +105,51 @@
                     <option value="Price">Price</option>
                   </select>
                </li>
+               <br>
+               <li>
+                <label for="period-of-use">Period of Use:</label>
+                   <br>
+                   <br>
+                   <input type="radio" id="hours-rad" name="time" onclick="clickHours()">
+                   <label for="hours-rad">Hours</label>
+                   <br>
+                   <input type="radio" id="months-rad" name="time" onclick="clickMonths()">
+                   <label for="months-rad">Months</label>
+                   <br>
+              <input type="numbers" id="hours" name="hours" placeholder="0" min="0" max="9999" disabled  required/>
+              <select id="months" name="months" required disabled>
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="12">12</option>
+              </select>
+             </li>
                 <br>
                 <div class="button">
                   <button type="reset">Reset</button>
                   <button type="submit">Send Data</button>
                 </div>
             </fieldset>
-          </form> 
+          </form>
         </div>
         <footer id="footer">
-          <img src="./LogoAxolotl_v2.png" id="logo-axolots">
+          <a href="https://github.com/Team-Axolotls" target="_blank">
+            <img src="./LogoAxolotl_v2.png" id="logo-axolots">
+          </a>
           <b id="made-by">Made by</b>
           <b id="text-axolots">Team Axolotls</b>
-          <img src="./LogoHuawei.png" id="logo-huawei"> 
+            <a href="https://www.huaweicloud.com/intl/en-us/" target="_blank">
+          <img src="./LogoHuawei.png" id="logo-huawei">
+          </a>
           <b id="powered-by">Powered by</b>
           <p id="rights-reserved">All rights granted under the GNU General Public License v3.0</p>
         </footer>
-        </div>
       </div>
       <script src="index.js"></script>
     </body>

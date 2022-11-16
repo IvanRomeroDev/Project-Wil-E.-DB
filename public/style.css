@@ -3,7 +3,7 @@ html
   background-color: #232527;
   background-image: url("https://media.istockphoto.com/id/1327566267/video/abstract-magenta-blue-orange-soft-gradient-cycle-slow-motion-background-loop.jpg?s=640x640&k=20&c=JkeZVgKCTx0u0RbGCTGQLscVMJq_eu6mr5bln00cE3E=");
   background-repeat: no-repeat;
-  background-size:1980px, 1080px;
+  background-size:1920px, 1080px;
 }
 
 h1
@@ -38,8 +38,8 @@ form
   font-family: 'Courier New', Courier, monospace;
   background-color:aliceblue;
   margin: 0 auto;
-  width: 550px;
-  height: 350px;
+  width: 650px;
+  height: 450px;
   padding: 1em;
   border: 1px solid #ccc;
   border-radius: 1em;
@@ -47,8 +47,8 @@ form
 
 fieldset
 {
-  width: 530px;
-  height: 350px;
+  width: 630px;
+  height: 450px;
   position: relative;
   left: -8px;
   bottom: 12px;
@@ -120,14 +120,28 @@ textarea
 
 .button
 {
-  padding-top: 20px;
-  padding-right: 20px;
+  position: relative;
+  top: -10px;
   text-align: center;
 }
 
 button
 {
   margin-left: 0.5em;
+}
+
+#months
+{
+  position: relative;
+  left: 130px;
+  top: -26px;
+}
+
+#hours
+{
+  position: relative;
+  left: 290px;
+  top: -50px;
 }
 
 #footer
@@ -194,4 +208,14 @@ button
   position: relative;
   top: 13px;
   color: azure;
+}
+
+a
+{
+  visibility: hidden;
+}
+
+a img
+{
+  visibility: visible;
 }

@@ -1,5 +1,6 @@
-user_region LA-Mexico City2
-user_monthlyPetitions 1
-user_approach Speed
-user_diskSpace 1
-user_budget 1
+user_region LA-Sao-Paulo1
+user_monthlyPetitions 199875871
+user_diskSpace 16000
+user_budget 500000
+user_approach Price
+months 4

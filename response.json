@@ -1,1 +1,7 @@
-{"nombre": "Jorge"}
+{"region": "LA-Sao-Paulo1",
+"vCPU": "8 vCPUs",
+"shards": 2,
+"CN": 1,
+"storage": 16160,
+"months" : 4,
+"cost" : 103808.00}

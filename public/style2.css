@@ -1,0 +1,262 @@
+*
+{
+    font-family: "Verdana", sans-serif;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    letter-spacing: 0px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    margin: 0;
+    color: #fff;
+}
+
+html
+{
+  background-color: #232527;
+  background-image: url("https://media.istockphoto.com/id/1327566267/video/abstract-magenta-blue-orange-soft-gradient-cycle-slow-motion-background-loop.jpg?s=640x640&k=20&c=JkeZVgKCTx0u0RbGCTGQLscVMJq_eu6mr5bln00cE3E=");
+  background-repeat: no-repeat;
+  background-size:1920px, 1080px;
+}
+
+#title
+{
+  font-family: 'Courier New', Courier, monospace;
+  color:azure;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h3
+{
+  font-family: 'Courier New', Courier, monospace;
+  color: azure;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#page-container
+{
+  position: relative;
+  min-height: 70vh;
+}
+
+#content-wrap
+{
+ padding-bottom: 2.5rem;
+}
+
+.content
+{
+    width: 1200px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carrusel
+{
+    display: grid;
+    grid-auto-flow: column;
+    scroll-behavior: auto;
+    gap: 1.2rem;
+    overflow-y: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carrusel::-webkit-scrollbar
+{
+    display: none;
+}
+
+.card
+{
+    scroll-snap-align: start;
+    border-radius: 30px;
+    min-height: 200px;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:nth-child(1)
+{
+    background: linear-gradient(-299deg, #FBD52D, #EF3A7B);
+}
+
+.card:nth-child(2)
+{
+    background: linear-gradient(-299deg,#FF70AF, #5FA8F5);
+}
+
+.card:nth-child(3)
+{
+    background: linear-gradient(-299deg, #0cebeb, #29ffc6);
+}
+
+.card:nth-child(4)
+{
+    background: linear-gradient(-299deg, #88F7F9, #048FFF);
+}
+
+.card:nth-child(5)
+{
+    background: linear-gradient(-229deg, #0093E9, #80D0C7);
+}
+
+.card:nth-child(6)
+{
+    background: linear-gradient(-229deg, #cf91ff, #5782F5);
+}
+
+.card:nth-child(7)
+{
+    background: linear-gradient(-229deg, #642B73, #C6426E);
+}
+
+.card_swivel
+{
+    background-color: transparent;
+    width: 500px;
+    height: 300px;
+    perspective: 1000px;
+    position: relative;
+    left: 120px;
+}
+
+.card_swivel-content
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card_swivel:hover .card_swivel-content
+{
+    transform: rotateY(180deg);
+}
+
+.card_swivel-content--front, .card_swivel-content--back
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card_swivel-content--front
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: xx-large;
+    background: linear-gradient(-229deg, #a21948, #000000);
+}
+
+.card_swivel-content--back
+{
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(229deg, #a21948, #80D0C7);
+    color: azure;
+    transform: rotateY(180deg);
+}
+
+.card_swivel-content--front h1, .card_swivel-content--back p
+{
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card_swivel-content--back h1
+{
+    font-size: 1.7rem;
+}
+
+#footer
+  {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+  }
+
+  #logo-axolots
+  {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    left: 145px;
+    top: 50px;
+  }
+
+  #made-by
+  {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    position: relative;
+    top: 5px;
+    left: -57px;
+    color: azure;
+  }
+
+  #text-axolots
+  {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    position: relative;
+    top: 25px;
+    left: -165px;
+    color: azure;
+  }
+
+  #logo-huawei
+  {
+    width: 85px;
+    height: 85px;
+    position: relative;
+    top: 42px;
+    left: 1080px;
+  }
+
+  #powered-by
+  {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    position: relative;
+    top: 12px;
+    left: 860px;
+    color: azure;
+  }
+
+  #rights-reserved
+  {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: smaller;
+    text-align: center;
+    position: relative;
+    top: 13px;
+    color: azure;
+  }
+
+  a
+  {
+    visibility: hidden;
+  }
+
+  a img
+  {
+    visibility: visible;
+  }
