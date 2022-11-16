@@ -1,0 +1,9 @@
+{
+    "watch": ["."],
+    "ext": "js, json, mjs, html, css, cpp",
+    "ignore": ["*.test.js"],
+    "delay": "3",
+    "execMap": {
+      "js": "node"
+    }
+  }
