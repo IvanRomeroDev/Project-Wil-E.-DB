@@ -1,7 +1,7 @@
-{"region": "LA-Sao-Paulo1",
+{"region": "LA-Mexico-City2",
 "vCPU": "8 vCPUs",
-"shards": 2,
+"shards": 1,
 "CN": 1,
-"storage": 16160,
-"months" : 4,
-"cost" : 103808.00}
+"storage": 320,
+"months" : 2,
+"cost" : 13504.00}

@@ -6,32 +6,32 @@ html
   background-size:1920px, 1080px;
 }
 
-h1
-{
-  font-family: 'Courier New', Courier, monospace;
-  color:azure;
-  margin: 0 auto;
-  text-align: center;
-}
+  h1
+  {
+    font-family: 'Courier New', Courier, monospace;
+    color:azure;
+    margin: 0 auto;
+    text-align: center;
+  }
 
-h3
-{
-  font-family: 'Courier New', Courier, monospace;
-  color: azure;
-  margin: 0 auto;
-  text-align: center;
-}
+  h3
+  {
+    font-family: 'Courier New', Courier, monospace;
+    color: azure;
+    margin: 0 auto;
+    text-align: center;
+  }
 
-#page-container
-{
-  position: relative;
-  min-height: 70vh;
-}
+  #page-container
+  {
+    position: relative;
+    min-height: 70vh;
+  }
 
-#content-wrap
-{
- padding-bottom: 2.5rem;
-}
+  #content-wrap
+  {
+   padding-bottom: 2.5rem;
+  }
 
 form 
 {
@@ -64,54 +64,68 @@ ul
   margin: 0;
 }
 
-li
-{
-  padding-left: 45px;
-}
+  li
+  {
+    padding-left: 45px;
+  }
+  
+  form li + li 
+  {
+    margin-top: 2em;
+  }
 
-form li + li 
-{
-  margin-top: 2em;
-}
+  legend
+  {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  label 
+  {
+    font-size: large;
+    font-family:'Courier New', Courier, monospace;
+    display:inline-block;
+    width: 250px;
+    text-align: top;
+    position: relative;
+  }
+  
+  input,
+  textarea 
+  {
+    font-size: large;
+    font: 1em sans-serif;
+    width: 150px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+  }
+  
+  input:focus,
+  textarea:focus 
+  {
+    border-color: #000;
+    background-color:cornsilk;
+  }
 
-legend
-{
-  text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-label 
-{
-  font-size: large;
-  font-family:'Courier New', Courier, monospace;
-  display:inline-block;
-  width: 250px;
-  text-align: top;
-  position: relative;
-}
-
-input,
-textarea 
-{
-  font-size: large;
-  font: 1em sans-serif;
-  width: 150px;
-  box-sizing: border-box;
-  border: 1px solid #999;
-}
-
-input:focus,
-textarea:focus 
-{
-  border-color: #000;
-  background-color:cornsilk;
-}
-
-textarea 
-{
-  vertical-align: top;
-  height: 5em;
-}
+  #hours-checkbox
+  {
+    position: relative;
+    top: -37px;
+    left: -150px;
+  }
+  
+  #months-checkbox
+  {
+    position: relative;
+    top: -36px;
+    left: -40px;
+  }
+  
+  textarea 
+  {
+    vertical-align: top;
+    height: 5em;
+  }
 
 #approach
 {
@@ -125,10 +139,10 @@ textarea
   text-align: center;
 }
 
-button
-{
-  margin-left: 0.5em;
-}
+  button
+  {
+    margin-left: 0.5em;
+  }
 
 #months
 {
@@ -152,53 +166,53 @@ button
   height: 2.5rem;
 }
 
-#logo-axolots
-{
-  width: 90px;
-  height: 90px;
-  position: relative;
-  left: 145px;
-  top: 50px;
-}
+  #logo-axolots
+  {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    left: 145px;
+    top: 50px;
+  }
 
-#made-by
-{
-  font-family: 'Courier New', Courier, monospace;
-  font-size: medium;
-  position: relative;
-  top: 5px;
-  left: -57px;
-  color: azure;
-}
+  #made-by
+  {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    position: relative;
+    top: 5px;
+    left: -57px;
+    color: azure;
+  }
 
-#text-axolots
-{
-  font-family: 'Courier New', Courier, monospace;
-  font-size: medium;
-  position: relative;
-  top: 25px;
-  left: -165px;
-  color: azure;
-}
+  #text-axolots
+  {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    position: relative;
+    top: 25px;
+    left: -165px;
+    color: azure;
+  }
 
-#logo-huawei
-{
-  width: 85px;
-  height: 85px;
-  position: relative;
-  top: 42px;
-  left: 1080px;
-}
+  #logo-huawei
+  {
+    width: 85px;
+    height: 85px;
+    position: relative;
+    top: 42px;
+    left: 1080px;
+  }
 
-#powered-by
-{
-  font-family: 'Courier New', Courier, monospace;
-  font-size: medium;
-  position: relative;
-  top: 12px;
-  left: 860px;
-  color: azure;
-}
+  #powered-by
+  {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    position: relative;
+    top: 12px;
+    left: 860px;
+    color: azure;
+  }
 
 #rights-reserved
 {

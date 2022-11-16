@@ -1,10 +1,10 @@
-const regionSR = "LA-Sao-Paulo1"
+const regionSR = "LA-Mexico-City2"
 const vCPUSR = "8 vCPUs"
-const shardsSR = 2
+const shardsSR = 1
 const CNSR = 1
-const storageSR = 16160
-const monthsSR = 4
-const costSR = 103808.00
+const storageSR = 320
+const monthsSR = 2
+const costSR = 13504.00
 
 const region_sr = document.getElementById('region_sr')
 const space_sr = document.getElementById('space_sr')
