@@ -5,7 +5,7 @@ const fs = require('fs');
 const subProcess = require('child_process');
 
 /// compila el programa cuando se inicia el servidor
-subProcess.execSync("g++ processor.cpp -o processor", (err, stdout, stderr) => {
+/*subProcess.execSync("g++ processor.cpp -o processor", (err, stdout, stderr) => {
     if (err) {
       console.error(err)
       process.exit(1)
@@ -13,7 +13,7 @@ subProcess.execSync("g++ processor.cpp -o processor", (err, stdout, stderr) => {
       console.log(`The stdout Buffer from shell: ${stdout.toString()}`)
       console.log(`The stderr Buffer from shell: ${stderr.toString()}`)
     }
-});
+});*/
 
 const PORT = process.env.PORT || 3000;
 
