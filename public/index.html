@@ -24,7 +24,7 @@
     <body>
       <div id="page-container">
         <div id="content-wrap">
-          <form action="/respuesta" method="post">
+          <form action="/response" method="post">
             <fieldset>
               <legend>ENTER YOUR REQUIREMENTS FOR A DATABASE</legend>
                <br>
@@ -33,7 +33,7 @@
                   <select id="region" name="user_region" required>
                     <option value="" selected>Select</option>
                     <optgroup label="America">
-                      <option value="LA-Mexico City2">North America</option>
+                      <option value="LA-Mexico City2">NorthAmerica</option>
                       <option value="LA-Sao Paulo1">Central America</option>
                       <option value="LA-Santiago">South America</option>
                     </optgroup>
@@ -52,7 +52,7 @@
                       <option value="Asi Pacifico - Bangkok">Western Asia</option>
                     </optgroup>
                     <optgroup label="Oceania">
-                      <option value="Asia Pacifico - Singapur">Australasia</option>
+                      <option value="Asia Pacifico - Singapur">Australasi</option>
                       <option value="Asia Pacifico - Singapur">Melanesia</option>
                       <option value="CN-Hong Kong">Micronesia</option>
                       <option value="CN-Hong Kong">Polynesia</option>
@@ -105,19 +105,40 @@
                     <option value="Price">Price</option>
                   </select>
                </li>
+               <br>
+             <li>
+              <label for="period-of-use">Period of Use:</label>
+              <br>
+              <p id="hours-text">Hours</p>
+              <input type="numbers" id="hours" name="hours" placeholder="0" disabled  required/>
+              <input type="checkbox" id="hours-checkbox"onmousedown="this.form.hours.disabled=this.checked"/>
+              <p id="hours-text">Months</p>
+              <select id="months" name="months" required disabled>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="12">12</option>
+              </select>
+              <input type="checkbox" id="months-checkbox"onmousedown="this.form.months.disabled=this.checked"/>
+             </li>
                 <br>
                 <div class="button">
                   <button type="reset">Reset</button>
                   <button type="submit">Send Data</button>
                 </div>
             </fieldset>
-          </form> 
+          </form>
         </div>
         <footer id="footer">
           <img src="./LogoAxolotl_v2.png" id="logo-axolots">
           <b id="made-by">Made by</b>
           <b id="text-axolots">Team Axolotls</b>
-          <img src="./LogoHuawei.png" id="logo-huawei"> 
+          <img src="./LogoHuawei.png" id="logo-huawei">
           <b id="powered-by">Powered by</b>
           <p id="rights-reserved">All rights granted under the GNU General Public License v3.0</p>
         </footer>
