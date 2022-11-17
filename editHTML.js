@@ -13,15 +13,69 @@ space_sr.innerHTML += storageSR + " GB"
 vcpu_sr.innerHTML += vCPUSR
 shards_sr.innerHTML += shardsSR
 nodes_sr.innerHTML += CNSR
-if(monthsSR == undefined){
-    billing_sr.innerHTML += "hourly"
-    period_sr.innerHTML += hoursSR + "hours"
+if(monthsSR == 0){
+    billing_sr.innerHTML += " hourly"
+    period_sr.innerHTML += hoursSR + " hours"
 } else if(monthsSR == 12){
-    billing_sr.innerHTML += "yearly"
+    billing_sr.innerHTML += " yearly"
     period_sr.innerHTML += 1 + " year"
 } else {
     billing_sr.innerHTML += "monthly"
     period_sr.innerHTML += monthsSR + " months"
 }
-
 cost_sr.innerHTML += "$" + costSR + " USD"
+
+
+const region_bc = document.getElementById('region_bc')
+const space_bc = document.getElementById('space_bc')
+const vcpu_bc = document.getElementById('vcpu_bc')
+const shards_bc = document.getElementById('shards_bc')
+const nodes_bc = document.getElementById('nodes_bc')
+const billing_bc = document.getElementById('billing_bc')
+const period_bc = document.getElementById('period_bc')
+const cost_bc = document.getElementById('cost_bc')
+
+region_bc.innerHTML += regionBC
+space_bc.innerHTML += storageBC + " GB"
+vcpu_bc.innerHTML += vCPUBC
+shards_bc.innerHTML += shardsBC
+nodes_bc.innerHTML += CNBC
+if(monthsBC == 0){
+    billing_bc.innerHTML += " hourly"
+    period_bc.innerHTML += hoursBC + " hours"
+} else if(monthsBC == 12){
+    billing_bc.innerHTML += " yearly"
+    period_bc.innerHTML += 1 + " year"
+} else {
+    billing_bc.innerHTML += " monthly"
+    period_bc.innerHTML += monthsBC + " months"
+}
+cost_bc.innerHTML += "$" + costBC + " USD"
+
+
+const region_b = document.getElementById('region_b')
+const space_b = document.getElementById('space_b')
+const vcpu_b = document.getElementById('vcpu_b')
+const shards_b = document.getElementById('shards_b')
+const nodes_b = document.getElementById('nodes_b')
+const billing_b = document.getElementById('billing_b')
+const period_b = document.getElementById('period_b')
+const cost_b = document.getElementById('cost_b')
+
+region_b.innerHTML += regionB
+space_b.innerHTML += storageB + " GB"
+vcpu_b.innerHTML += vCPUB
+shards_b.innerHTML += shardsB
+nodes_b.innerHTML += CNB
+if(monthsB == 0){
+    billing_b.innerHTML += " hourly"
+    period_b.innerHTML += hoursB + " hours"
+} else if(monthsB == 12){
+    billing_b.innerHTML += " yearly"
+    period_b.innerHTML += 1 + " year"
+} else {
+    billing_b.innerHTML += " monthly"
+    period_b.innerHTML += monthsB + " months"
+}
+
+cost_b.innerHTML += "$" + costB + " USD"

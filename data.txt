@@ -1,6 +1,5 @@
-user_region LA-Mexico-City2
-user_monthlyPetitions 10204951
-user_diskSpace 160
-user_budget 1000
-user_approach Price
-months 2
+user_region CN-Southwest-Guiyang1
+user_monthlyPetitions 1231689789
+user_diskSpace 1298
+user_budget 129843
+months 4

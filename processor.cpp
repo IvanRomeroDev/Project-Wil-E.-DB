@@ -2,7 +2,6 @@
 #include <string>
 #include <map>
 #include <iomanip>
-#include <iostream>
 
 using namespace std;
 
@@ -12,8 +11,6 @@ struct config{
     int shards;
     int CN;
     int storage;
-    int use_periodH = 0;
-    int use_periodM = 0;
     long double cost = 0;
 };
 
@@ -35,17 +32,23 @@ const long double storage_cost[3][3] = {
 /// coenxions per second per CNs
 const int CPS[4] = {2000, 4000, 9000, 18000};
 
-string vCPU(int i){
-    if(i == 0) return "8 vCPUs";
-    if(i == 1) return "16 vCPUs";
-    if(i == 2) return "32 vCPUs";
-    return "64 vCPUs";
-}
+/// string que identifica al vCPU
+string vCPU(int i);
+
+/// reajusta el almacenamiento a multiplos de 160
+void fix_storage(config &conf);
+
+/// genera shards, almacemamiento y actualiza el precio
+void update_shards(config &conf, int period);
+
+/// genera vCPU y actualiza el precio
+void update_vCPU(config &conf, int period);
+
+/// escribe la configuracion como variables javaScript en el archivo indicado
+void printConfig(const config &conf, int period, string varSuffix, ofstream &output);
 
 int main(){
     ifstream input("data.txt");
-    ofstream output("response.json");
-    ofstream outputJS("public/respuesta.js");
 
     string user_region, user_approach;
 
@@ -72,103 +75,88 @@ int main(){
     /// best match
     config nearest;
     nearest.region = user_region;
-    nearest.storage = props["user_diskSpace"] + 1;
-    nearest.storage = (nearest.storage + 159) / 160 * 160;
-    cout << "Redondeado: " << nearest.storage << '\n';
-    nearest.storage = max(160, nearest.storage);
-    nearest.storage = min(144000, nearest.storage);
 
-    for(nearest.shards = 1; nearest.shards < 9 && 16000 * nearest.shards < nearest.storage; ++(nearest.shards)){
-        //
-    }
-
-    /// compute shards cost
-    int reg_cost = 0;
-    if(nearest.region == "CN-Southwest-Guiyang1") reg_cost = 2;
-    else if(nearest.region == "AP-Jakarta") reg_cost = 1;
-
-    nearest.cost += nearest.shards * storage_cost[reg_cost][period] * nearest.storage;
-
-    cout << "Despues de shards: " << nearest.storage << ' ' << nearest.cost << '\n';
-
-    /// compute vCPU cost
-    reg_cost = 0;
-    if(nearest.region == "CN-Southwest-Guiyang1") reg_cost = 1;
-
-    int QPS = props["user_monthlyPetitions"] / segs + 1;
-    long double pot2 = 1, bestCost = 1e30;
-    for(int i = 0; i < 4; ++i){
-        for(int cn = 1; cn < 10; ++cn){
-            if(CPS[i] * cn < QPS) continue;
-
-            long double new_cost = cn * vcpu_cost[reg_cost][period] * pot2 + vcpu_cost[reg_cost][period] * pot2 * 3;
-            if(new_cost < bestCost){
-                bestCost = new_cost;
-                nearest.CN = cn;
-                nearest.vCPU = vCPU(i);
-            }
-        }
-        pot2 *= 2;
-    }
-    cout << "Servidor: " << reg_cost << '\n';
-    cout << "Despues de vCpu: " << nearest.cost << ' ' << bestCost << '\n';
-    nearest.cost += bestCost;
+    fix_storage(nearest);
+    update_shards(nearest, period);
+    update_vCPU(nearest, period);
 
 
     /// mas barato
     config cheaper;
     cheaper.region = "CN-Southwest-Guiyang1";
-    cheaper.region = user_region;
-    cheaper.storage = props["user_diskSpace"] + 1;
-    cheaper.storage = (cheaper.storage + 159) / 160;
-    cheaper.storage = max(160, cheaper.storage);
-    cheaper.storage = min(144000, cheaper.storage);
 
-    for(cheaper.shards = 1; cheaper.shards < 9 && 16000 * cheaper.shards < cheaper.storage; ++(cheaper.shards)){
-        //
+    fix_storage(cheaper);
+    update_shards(cheaper, period);
+    update_vCPU(cheaper, period);
+
+    /// balance
+    config balance;
+    long double budget = props["user_budget"];
+
+    fix_storage(balance);
+
+
+
+    for(int i = 0; i < 3; ++i){ /// grupos de regiones
+        config conf;
+        conf = balance;
+        conf.cost = 0;
+
+        int reg_cost = i;
+        for(conf.shards = 1; conf.shards < 9 && 16000 * conf.shards < conf.storage; ++(conf.shards)){
+            long double c = conf.shards * storage_cost[reg_cost][period] * conf.storage;
+            if(budget < conf.cost + c){
+                break;
+            }
+        }
+        conf.cost += conf.shards * storage_cost[reg_cost][period] * conf.storage;
+
+        reg_cost = max(0, reg_cost - 1);
+
+        int QPS = props["user_monthlyPetitions"] / segs + 1;
+        long double pot2 = 1, bestCost = 0;
+
+        bestCost = vcpu_cost[reg_cost][period] + vcpu_cost[reg_cost][period] * 3;
+        for(int i = 0; i < 4; ++i){
+            for(int cn = 1; cn < 10; ++cn){
+                if(CPS[i] * cn < QPS) continue;
+
+                long double new_cost = cn * vcpu_cost[reg_cost][period] * pot2 + vcpu_cost[reg_cost][period] * pot2 * 3;
+
+                long double time = props["months"];
+                if(!time) time = props["hours"];
+
+                if( time * (conf.cost + new_cost) <= budget && bestCost < new_cost){
+                    bestCost = new_cost;
+                    conf.CN = cn;
+                    conf.vCPU = vCPU(i);
+                    //cout << "Selected: " << new_cost << ' ' << conf.cost + new_cost << '\n';
+                }
+            }
+            pot2 *= 2;
+        }
+
+        //cout << "Conf: " << conf.cost << ' ' << bestCost << '\n';
+        conf.cost += bestCost;
+
+        if(balance.cost < conf.cost){
+            balance = conf;
+            if(i == 0) balance.region = "LA-Mexico-City2";
+            else if(i == 2) balance.region = "AP-Jakarta";
+            else balance.region = "CN-Southwest-Guiyang1";
+            //cout << "New: " << balance.cost << '\n';
+        }
     }
 
 
-    cout << "Costo total: " << nearest.cost << '\n';
 
-    output << "{";
+    ofstream outputJS("public/respuesta.js");
 
-    output << "\"region\": " << "\"" + nearest.region + "\"" << ",\n";
-    output << "\"vCPU\": " << "\"" + nearest.vCPU + "\"" << ",\n";
-    output << "\"shards\": " << nearest.shards << ",\n";
-    output << "\"CN\": " << nearest.CN << ",\n";
-    output << "\"storage\": " << nearest.storage << ",\n";
-    if(period == 0){
-        output << "\"hours\" : " << props["hours"] << ",\n";
-        output << "\"cost\" : " << fixed << setprecision(2) << nearest.cost * props["hours"];
-    } else if(period == 1){
-        output << "\"months\" : " << props["months"] << ",\n";
-        output << "\"cost\" : " << fixed << setprecision(2) << nearest.cost * props["months"];
-        cout << nearest.cost << ' ' << "M: " << props["months"] << '\n';
-    } else {
-        output << "\"yearly\" : " << 1 << ",\n";
-        output << "\"cost\" : " << fixed << setprecision(2) << nearest.cost * 10;
-    }
+    printConfig(nearest, period, "SR", outputJS);
 
-    output << "}";
+    printConfig(cheaper, period, "BC", outputJS);
 
-    /// escribo las variables en el javascript
-    outputJS << "const regionSR = " << "\"" + nearest.region + "\"" << "\n";
-    outputJS << "const vCPUSR = " << "\"" + nearest.vCPU + "\"" << "\n";
-    outputJS << "const shardsSR = " << nearest.shards << "\n";
-    outputJS << "const CNSR = " << nearest.CN << "\n";
-    outputJS << "const storageSR = " << nearest.storage << "\n";
-    if(period == 0){
-        outputJS << "const hoursSR = " << props["hours"] << "\n";
-        outputJS << "const costSR = " << fixed << setprecision(2) << nearest.cost * props["hours"] << "\n";
-    } else if(period == 1){
-        outputJS << "const monthsSR = " << props["months"] << "\n";
-        outputJS << "const costSR = " << fixed << setprecision(2) << nearest.cost * props["months"] << "\n";
-        cout << nearest.cost << ' ' << "M: " << props["months"] << '\n';
-    } else {
-        outputJS << "const yearlySR = " << 1 << "\n";
-        outputJS << "const costSR = " << fixed << setprecision(2) << nearest.cost * 10 << "\n";
-    }
+    printConfig(balance, period, "B", outputJS);
 
     ifstream codeJS("editHTML.js");
 
@@ -180,9 +168,86 @@ int main(){
 
     }
 
-    codeJS.close();
     outputJS.close();
+    codeJS.close();
     input.close();
-    output.close();
     return 0;
+}
+
+
+string vCPU(int i){
+    if(i == 0) return "8 vCPUs";
+    if(i == 1) return "16 vCPUs";
+    if(i == 2) return "32 vCPUs";
+    return "64 vCPUs";
+}
+
+void fix_storage(config &conf){
+    conf.storage = props["user_diskSpace"] + 1;
+    conf.storage = (conf.storage + 159) / 160 * 160;
+    conf.storage = max(160, conf.storage);
+    conf.storage = min(144000, conf.storage);
+}
+
+void update_shards(config &conf, int period){
+    for(conf.shards = 1; conf.shards < 9 && 16000 * conf.shards < conf.storage; ++(conf.shards)){
+        //
+    }
+
+    /// compute shards cost
+    int reg_cost = 0;
+    if(conf.region == "CN-Southwest-Guiyang1") reg_cost = 2;
+    else if(conf.region == "AP-Jakarta") reg_cost = 1;
+
+    conf.cost += conf.shards * storage_cost[reg_cost][period] * conf.storage;
+}
+
+void update_vCPU(config &conf, int period){
+    /// compute vCPU cost
+    int reg_cost = 0;
+    if(conf.region == "CN-Southwest-Guiyang1") reg_cost = 1;
+
+    int QPS = props["user_monthlyPetitions"] / segs + 1;
+    long double pot2 = 1, bestCost = 1e30;
+    for(int i = 0; i < 4; ++i){
+        for(int cn = 1; cn < 10; ++cn){
+            if(CPS[i] * cn < QPS) continue;
+
+            long double new_cost = cn * vcpu_cost[reg_cost][period] * pot2 + vcpu_cost[reg_cost][period] * pot2 * 3;
+            if(new_cost < bestCost){
+                bestCost = new_cost;
+                conf.CN = cn;
+                conf.vCPU = vCPU(i);
+            }
+        }
+        pot2 *= 2;
+    }
+    conf.cost += bestCost;
+}
+
+void printConfig(const config &conf, int period, string varSuffix, ofstream &output){
+    /// escribo las variables en el javascript
+    /// mejor coincidencia
+    output << "const region" + varSuffix + " = " << "\"" + conf.region + "\"" << "\n";
+    output << "const vCPU" + varSuffix + " = " << "\"" + conf.vCPU + "\"" << "\n";
+    output << "const shards" + varSuffix + " = " << conf.shards << "\n";
+    output << "const CN" + varSuffix + " = " << conf.CN << "\n";
+    output << "const storage" + varSuffix + " = " << conf.storage << "\n";
+    if(period == 0){
+        output << "const months" + varSuffix + " = 0\n";
+        output << "const hours" + varSuffix + " = " << props["hours"] << "\n";
+        output << "const cost" + varSuffix + " = " << fixed << setprecision(2) << conf.cost * props["hours"] << "\n";
+    } else {
+        output << "const hours" + varSuffix + " = 0\n";
+        output << "const months" + varSuffix + " = " << props["months"] << "\n";
+
+        long double c;
+        if(period == 1) c = conf.cost * props["months"];
+        else c = conf.cost;
+
+        output << "const cost" + varSuffix + " = " << fixed << setprecision(2) << c << "\n";
+        //cout << conf.cost << ' ' << "M: " << props["months"] << '\n';
+    }
+
+    output << "\n";
 }

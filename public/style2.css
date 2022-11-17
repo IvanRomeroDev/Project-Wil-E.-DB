@@ -77,8 +77,8 @@ h3
 {
     scroll-snap-align: start;
     border-radius: 30px;
-    min-height: 200px;
-    min-width: 300px;
+    min-height: 1500px;
+    min-width: 2500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,11 +122,11 @@ h3
 .card_swivel
 {
     background-color: transparent;
-    width: 500px;
+    width: 450px;
     height: 300px;
     perspective: 1000px;
     position: relative;
-    left: 120px;
+    left: 15px;
 }
 
 .card_swivel-content
@@ -169,6 +169,7 @@ h3
 .card_swivel-content--back
 {
     font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
     background: linear-gradient(229deg, #a21948, #80D0C7);
     color: azure;
     transform: rotateY(180deg);

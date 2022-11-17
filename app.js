@@ -23,6 +23,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get('/respuesta', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/respuesta.html'));
+})
+
 app.post('/respuesta', (req, res) => {
     const user_data = req.body;
     
@@ -50,10 +54,7 @@ app.post('/respuesta', (req, res) => {
         }
         
     });
-    
-    const response = require("./response.json");
-    console.log(response);
-    /// envio la respuesta al cliente
+
     res.sendFile(path.join(__dirname, 'public/respuesta.html'));
 });
 
