@@ -1,29 +1,29 @@
-const regionSR = "LA-Mexico-City2"
+const regionSR = "CN-Southwest-Guiyang1"
 const vCPUSR = "8 vCPUs"
-const shardsSR = 1
+const shardsSR = 9
 const CNSR = 1
-const storageSR = 160
-const monthsSR = 0
-const hoursSR = 1
-const costSR = 13.57
+const storageSR = 135520
+const hoursSR = 0
+const monthsSR = 3
+const costSR = 2045006.21
 
 const regionBC = "CN-Southwest-Guiyang1"
 const vCPUBC = "8 vCPUs"
-const shardsBC = 1
+const shardsBC = 9
 const CNBC = 1
-const storageBC = 160
-const monthsBC = 0
-const hoursBC = 1.00
-const costBC = 12.92
+const storageBC = 135520
+const hoursBC = 0
+const monthsBC = 3.00
+const costBC = 2045006.21
 
 const regionB = "CN-Southwest-Guiyang1"
 const vCPUB = "8 vCPUs"
-const shardsB = 1
+const shardsB = 9
 const CNB = 1
-const storageB = 160
-const monthsB = 0
-const hoursB = 1.00
-const costB = 13.68
+const storageB = 135520
+const hoursB = 0
+const monthsB = 3.00
+const costB = 2368783.68
 
 
 const region_sr = document.getElementById('region_sr')
