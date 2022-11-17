@@ -1,5 +1,5 @@
-user_region CN-Southwest-Guiyang1
-user_monthlyPetitions 1231689789
-user_diskSpace 1298
-user_budget 129843
-months 4
+user_region LA-Mexico-City2
+user_monthlyPetitions 1
+user_diskSpace 1
+user_budget 1
+hours 1

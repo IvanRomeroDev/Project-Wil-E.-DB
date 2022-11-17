@@ -117,6 +117,9 @@ int main(){
         long double pot2 = 1, bestCost = 0;
 
         bestCost = vcpu_cost[reg_cost][period] + vcpu_cost[reg_cost][period] * 3;
+        conf.CN = 1;
+        conf.vCPU = vCPU(0);
+
         for(int i = 0; i < 4; ++i){
             for(int cn = 1; cn < 10; ++cn){
                 if(CPS[i] * cn < QPS) continue;
