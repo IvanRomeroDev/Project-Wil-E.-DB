@@ -43,7 +43,7 @@ app.post('/respuesta', (req, res) => {
     }
     
     /// ejecuto el programa en cpp desde la terminal
-    subProcess.execFileSync("./processor", (err, stdout, stderr) => {
+    subProcess.execFileSync("./processor", [], {}, (err, stdout, stderr) => {
         if (err) {
           console.error(err)
           process.exit(1)
